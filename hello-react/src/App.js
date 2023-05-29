@@ -1,12 +1,13 @@
 import './App.css';
 import Header from './components/Header'
+import User from './components/User'
 
 const name = "metin";
 
 function App() {
   return (
     <div>
-      <Header />
+      {/* <Header />
 
       <p className="xyz">loremfa-rotate-180</p>
 
@@ -17,7 +18,9 @@ function App() {
 
       <div>
         {name}
-      </div>
+      </div> */}
+
+      <User name="Metin" surName="Keleş" />
     </div>
 
   );
