@@ -1,6 +1,8 @@
 import './App.css';
 import Header from './components/Header'
 
+const name = "metin";
+
 function App() {
   return (
     <div>
@@ -12,6 +14,10 @@ function App() {
         name
         <input id="myinput" />
       </label>
+
+      <div>
+        {name}
+      </div>
     </div>
 
   );
