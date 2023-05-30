@@ -20,7 +20,7 @@ function App() {
         {name}
       </div> */}
 
-      <User name="Metin" surName="Keleş" />
+      <User name="Metin" surName="Keleş" age={23} />
     </div>
 
   );
