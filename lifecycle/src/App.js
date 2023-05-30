@@ -1,31 +1,16 @@
-import { useState, useEffect } from 'react'
+import { useState } from "react";
+import Counter from "./components/Counter"
 import './App.css';
 
 function App() {
-  const [number, setNumber] = useState(0);
-  const [name, setName] = useState('Metin');
-
-  // useEffect(() => {
-  //   console.log("State Update");
-  // })
-
-  useEffect(() => {
-    console.log("component mount edildi");
-  }, [])
-
-  useEffect(() => {
-    console.log("number component update");
-  }, [number])
+  const [isvisible, setIsvisible] = useState(true);
 
   return (
     <div className="App">
-      <h1>{number}</h1>
-      <button onClick={() => setNumber(number + 1)}>click</button>
+      {/* <Counter></Counter> */}
+      {isvisible && <Counter />}
 
-      <br />
-
-      <h1>{name}</h1>
-      <button onClick={() => setName("Keleş")}>click</button>
+      <button onClick={() => setIsvisible(!isvisible)}>Toggle</button>
     </div>
   );
 }
