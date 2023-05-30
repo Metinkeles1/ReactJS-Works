@@ -1,23 +1,31 @@
-import logo from './logo.svg';
+import { useState, useEffect } from 'react'
 import './App.css';
 
 function App() {
+  const [number, setNumber] = useState(0);
+  const [name, setName] = useState('Metin');
+
+  // useEffect(() => {
+  //   console.log("State Update");
+  // })
+
+  useEffect(() => {
+    console.log("component mount edildi");
+  }, [])
+
+  useEffect(() => {
+    console.log("number component update");
+  }, [number])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>{number}</h1>
+      <button onClick={() => setNumber(number + 1)}>click</button>
+
+      <br />
+
+      <h1>{name}</h1>
+      <button onClick={() => setName("Keleş")}>click</button>
     </div>
   );
 }
