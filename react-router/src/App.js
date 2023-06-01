@@ -2,9 +2,9 @@ import './App.css';
 
 // pages
 import Users from './components/Users';
-import User from './components/User';
 import Home from './components/Home';
 import About from './components/About';
+import User from './components/User';
 
 import React from "react";
 import {
@@ -15,6 +15,7 @@ import {
 } from "react-router-dom";
 
 function App() {
+
   return (
     <Router>
       <div>
@@ -35,10 +36,11 @@ function App() {
 
 
       <Routes>
-        <Route path='/' exact Component={Home} />
-        <Route path='/about' Component={About} />
-        <Route path='/users' Component={Users} />
-        <Route path='/user/:id' Component={User} />
+        <Route path='/' exact element={<Home />} />
+        <Route path='about' element={<About />} />
+        <Route path='users' element={<Users />}>
+          <Route path=':id' element={<Users />} />
+        </Route>
       </Routes>
     </Router>
   );

@@ -1,6 +1,7 @@
-import { Link } from 'react-router-dom'
+import { Link, Router, Outlet } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from "axios";
+
 
 function Users() {
     const [loading, setLoading] = useState(true);
@@ -23,7 +24,9 @@ function Users() {
                     </li>
                 ))}
             </ul>
-        </div>
+
+            <Outlet />
+        </div >
     )
 }
 
