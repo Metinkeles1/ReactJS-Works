@@ -2,6 +2,7 @@ import './App.css';
 
 // pages
 import Users from './components/Users';
+import User from './components/User';
 import Home from './components/Home';
 import About from './components/About';
 
@@ -34,9 +35,10 @@ function App() {
 
 
       <Routes>
-        <Route path='' Component={Home} />
-        <Route path='about' Component={About} />
-        <Route path='users' Component={Users} />
+        <Route path='/' exact Component={Home} />
+        <Route path='/about' Component={About} />
+        <Route path='/users' Component={Users} />
+        <Route path='/user/:id' Component={User} />
       </Routes>
     </Router>
   );
