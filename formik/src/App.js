@@ -4,11 +4,9 @@ import { useFormik } from 'formik'
 function App() {
   const { handleSubmit, handleChange, values } = useFormik({
     initialValues: {
-      firstName: '',
-      lastName: '',
       email: '',
-      gender: 'male',
-      hobies: []
+      password: '',
+      passWordConfirm: ''
     },
     onSubmit: values => {
       alert(JSON.stringify(values, null, 2));
@@ -18,80 +16,25 @@ function App() {
   return (
     <div className="App">
       <form onSubmit={handleSubmit}>
-        <label htmlFor="firstName">First Name</label>
-        <input id="firstName" name="firstName" placeholder="Jane" value={values.firstName} onChange={handleChange} />
+        <label >Email</label>
+        <input name="email" placeholder="Jane" value={values.email} onChange={handleChange} />
 
         <br /><br />
 
-        <label html For="lastName">Last Name</label>
-        <input id="lastName" name="lastName" placeholder="Doe" value={values.lastName} onChange={handleChange} />
+        <label>Password</label>
+        <input name="password" placeholder="Jane" value={values.password} onChange={handleChange} />
 
         <br /><br />
 
-        {/* radio */}
-        <span>Male</span>
-        <input
-          type="radio"
-          name='gender'
-          value="male"
-          onChange={handleChange}
-          checked={values.gender === "male"}
-        />
-
-        <span>Female</span>
-        <input
-          type="radio"
-          name='gender'
-          value="female"
-          onChange={handleChange}
-          checked={values.gender === "female"}
-        />
-        {/* radio */}
+        <label>confirm Password</label>
+        <input name="passWordConfirm" placeholder="Jane" value={values.passWordConfirm} onChange={handleChange} />
 
         <br /><br />
-
-        {/* checkbox */}
-        <div>
-          <input
-            type="checkbox"
-            name='hobies'
-            value="cinema"
-            onChange={handleChange}
-          />
-          Cinema
-        </div>
-
-        <div>
-          <input
-            type="checkbox"
-            name='hobies'
-            value="Photography"
-            onChange={handleChange}
-          />
-          Photography
-        </div>
-        {/* checkbox */}
-
-
-        <select name='country' value={values.country} onChange={handleChange}>
-          <option value="turkey">turkey</option>
-          <option value="england">england</option>
-          <option value="usa">usa</option>
-        </select>
-
-        <br /><br />
-
-        <label htmlFor="email">Email</label>
-        <input
-          id="email"
-          name="email"
-          placeholder="jane@acme.com"
-          type="email"
-          value={values.email}
-          onChange={handleChange}
-        />
 
         <button type="submit">Submit</button>
+        <br /><br />
+
+        <code>{JSON.stringify(values)}</code>
       </form>
     </div >
   );
