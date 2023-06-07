@@ -13,3 +13,7 @@ export const init = () => {
         console.log("sunucuya bağlantı başarı ile gerçekleşti");
     });
 };
+
+export const send = (color) => {
+    socket.emit("newColor", color);
+}
