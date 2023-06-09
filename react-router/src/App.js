@@ -4,18 +4,26 @@ import './App.css';
 import Users from './components/Users';
 import Home from './components/Home';
 import About from './components/About';
-import User from './components/User';
+// import User from './components/User';
 
 import React from "react";
 import {
   createBrowserRouter,
   RouterProvider
 } from "react-router-dom";
+import { MainLayout } from './layouts/MainLayout';
 
 const router = createBrowserRouter([
-  { index: true, element: (<Home />) },
-  { path: 'About', element: (<About />) },
-  { path: 'users', element: (<Users />) }
+  {
+    path: '/',
+    element: <MainLayout />,
+    children: [
+      { index: true, element: <Home /> },
+      { path: 'home', element: <Home /> },
+      { path: 'about', element: <About /> },
+      { path: 'users', element: <Users /> },
+    ]
+  }
 ])
 
 function App() {
