@@ -15,18 +15,23 @@ function User() {
     }, [id])
 
     return (
-        <div>
-            <h1>
-                {loading && <div>loading...</div>}
-                {!loading && <code>
-                    {JSON.stringify(user)}
-                </code>}
+        <div className='user-details'>
+            {loading && <div>loading...</div>}
+            {!loading && <div >
+                <h3>
+                    <i className="fa-solid fa-caret-right"></i> {user.name}
+                </h3>
+                <ul>
+                    <li>{user.username}</li>
+                    <li>{user.email}</li>
+                    <li>{user.phone}</li>
+                    <li>{user.company.name} / {user.address.city}</li>
+                </ul>
+            </div>
+            }
 
-                <br />
-                <br />
-                <Link to={`/user/${parseInt(id) + 1}`}> Next User ({parseInt(id) + 1})</Link>
-            </h1>
-
+            <br />
+            <Link to={`/users/${parseInt(id) + 1}`}> Next User ({parseInt(id) + 1})</Link>
         </div>
     )
 }

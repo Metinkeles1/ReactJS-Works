@@ -14,14 +14,21 @@ function Users() {
     }, [])
 
     return (
-        <div>
+        <div className='users'>
             <h1>User</h1>
             {loading && <div>loading...</div>}
             <ul>
                 {users.map((user) => (
-                    <li key={user.id}>
-                        <Link to={`user/${user.id}`}>{user.name}</Link>
-                    </li>
+                    <div className='card'>
+                        <h3>
+                            <i className='fa-solid fa-caret-right'></i>{user.name}
+                        </h3>
+                        <Link to={`/users/${user.id}`} key={user.id}>
+                            <i className='fa-regular fa-square-caret-right'></i>
+                        </Link>
+                        {/* <li >
+                        </li> */}
+                    </div>
                 ))}
             </ul>
 

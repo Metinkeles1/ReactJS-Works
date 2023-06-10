@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
-
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css');
 
 :root {
   --primary: #feb236;
@@ -11,13 +10,17 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  color: #fff;
 }
 
 body {
   font-family: 'Open Sans', sans-serif;
   padding: 20px;
   background: var(--secondary);
+  color: #fff;
+}
+
+a {
+  color: #fff;
 }
 
 header {
@@ -109,4 +112,30 @@ form button {
   color: #fff;
   background: var(--primary);
   cursor: pointer;
+}
+
+/* users */
+.users .card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 4px;
+  background-color: var(--secondary);
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.users .card a {
+  font-size: 20px;
+}
+
+/* user details */
+.user-details {
+  padding: 10px;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.user-details ul {
+  padding: 30px;
 }
