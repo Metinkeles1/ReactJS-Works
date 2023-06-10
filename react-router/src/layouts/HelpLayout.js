@@ -5,8 +5,10 @@ export const HelpLayout = () => {
         <div className="help-layout">
             <h1>Help</h1>
             <p>lorem ipsum dolar sit  amet</p>
-            <NavLink to="contact">Contact</NavLink>
-            <NavLink to="faq">Faq</NavLink>
+            <nav>
+                <NavLink to="contact">Contact</NavLink>
+                <NavLink to="faq">Faq</NavLink>
+            </nav>
             <main>
                 <Outlet />
             </main>

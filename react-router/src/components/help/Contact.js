@@ -1,11 +1,18 @@
 export const Contact = () => {
     return (
-        <div className="faq">
+        <div className="contact">
             <h3>İletişim</h3>
             <form>
-                <input type="text"></input>
+                <div>
+                    <label htmlFor="email">Email: </label>
+                    <input type="email" name="email" />
+                </div>
+                <div>
+                    <label htmlFor="message">Message: </label>
+                    <textarea name="message"></textarea>
+                </div>
                 <button>Submit</button>
             </form>
         </div>
-    )
+    );
 }
