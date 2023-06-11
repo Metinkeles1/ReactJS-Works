@@ -40,7 +40,7 @@ const LoginForm = () => {
         <div className="container mt-5">
             <div className="card mx-auto" style={{ maxWidth: '400px' }}>
                 <div className="card-body">
-                    <h1 className="text-center mb-4">Instagram</h1>
+                    <h1 className="text-center mb-4">Login Form</h1>
                     <form onSubmit={isRegistered ? handleLogin : handleRegistration}>
                         <div className="mb-3">
                             <input type="text" id="username" className="form-control" placeholder="Kullanıcı Adı" value={username} onChange={handleUsernameChange} />
