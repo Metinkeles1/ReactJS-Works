@@ -1,28 +1,36 @@
 import React from 'react'
 import { NavLink, Outlet } from "react-router-dom"
+import styles from "./styles.module.css"
 
 function Navbar() {
     return (
         <div>
-            <div className='left'>
-                <div className='logo'>
-                    <NavLink to="/">eCommerce</NavLink>
+            <nav className={styles.nav}>
+                <div className={styles.left}>
+                    <div className={styles.logo}>
+                        <NavLink to="/">eCommerce</NavLink>
+                    </div>
+
+                    <ul className={styles.menu}>
+                        <li>
+                            <NavLink exact to="/">Home</NavLink>
+                        </li>
+
+                        <li>
+                            <NavLink to="/about">About</NavLink>
+                        </li>
+                    </ul>
                 </div>
-            </div>
-            <div className='right'>
-
-            </div>
-
-
-            <nav>
-                <NavLink to="/">Home</NavLink>
-                <NavLink to="about">About</NavLink>
+                <div className={styles.right}>
+                    right
+                </div>
             </nav>
 
-            <main className="container">
+            <main className={styles.container}>
                 <Outlet />
             </main>
         </div>
+
     )
 }
 
