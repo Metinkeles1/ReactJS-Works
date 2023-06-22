@@ -1,6 +1,7 @@
 import React from 'react'
 import { NavLink, Outlet } from "react-router-dom"
 import styles from "./styles.module.css"
+import { Button, ButtonGroup } from '@chakra-ui/react'
 
 function Navbar() {
     return (
@@ -22,11 +23,17 @@ function Navbar() {
                     </ul>
                 </div>
                 <div className={styles.right}>
-                    right
+                    <NavLink to="/signin">
+                        <Button colorScheme='pink'>Login</Button>
+                    </NavLink>
+
+                    <NavLink to="/signup">
+                        <Button colorScheme='pink'>Register</Button>
+                    </NavLink>
                 </div>
             </nav>
 
-            <main className={styles.container}>
+            <main className={styles.content}>
                 <Outlet />
             </main>
         </div>
