@@ -1,10 +1,23 @@
 import './App.css';
 
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+
+import Home from './pages/home/Home';
+import Create from './pages/create/Create';
+import Search from './pages/search/Search';
+import Details from './pages/details/Details';
+
+const routes = createBrowserRouter([
+  { path: '/', element: <Home /> },
+  { path: '/create', element: <Create /> },
+  { path: '/details/:id', element: <Details /> },
+  { path: '/search', element: <Search /> },
+])
+
+
 function App() {
   return (
-    <div className="App">
-      <h1>Nefis Yemek Tarifleri</h1>
-    </div>
+    <RouterProvider router={routes} />
   );
 }
 
