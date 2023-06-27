@@ -1,12 +1,27 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import './Create.css';
 
 function Create() {
     const [baslik, setBaslik] = useState('');
     const [aciklama, setAciklama] = useState('');
+    const [malzeme, setMalzeme] = useState('');
+    const [malzemeler, setMalzemeler] = useState([]);
     const [hazirlanisi, setHazirlanisi] = useState('');
     const [resim, setResim] = useState('');
     const [url, setUrl] = useState('');
+    const malzemeInput = useRef(null);
+
+    const handleAddMalzeme = (e) => {
+        const item = malzeme.trim();
+
+        if (item && !malzemeler.includes(item)) {
+            setMalzemeler(prevItems => [...prevItems, item])
+        }
+        setMalzeme('');
+        malzemeInput.current.focus();
+        malzemeInput.current.value = '';
+    }
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -25,6 +40,13 @@ function Create() {
                     <div className='mb-3'>
                         <label htmlFor='aciklama' className='form-label'>Açıklama</label>
                         <input type="text" name='aciklama' id='aciklama' className='form-control' onChange={(e) => setAciklama(e.target.value)} />
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="malzemeler">Malzemeler: <ul>{malzemeler.map(item => <li key={item}>{item}</li>)}</ul></label>
+                        <div className="input-group">
+                            <input ref={malzemeInput} type="text" name='malzeme' className='form-control' onChange={(e) => setMalzeme(e.target.value)} />
+                            <button className='btn btn-secondary' type='button' onClick={handleAddMalzeme}>+</button>
+                        </div>
                     </div>
                     <div className='mb-3'>
                         <label htmlFor='hazirlanisi' className='form-label'>Hazırnalışı</label>
