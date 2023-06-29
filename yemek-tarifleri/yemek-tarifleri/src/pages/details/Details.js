@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useParams } from 'react-router-dom';
+import { ThemeContext } from '../../contexts/ThemeContext';
 import useFetch from '../../hooks/useFetch';
 import './Details.css';
 
 function Details() {
+    const { btnColor } = useContext(ThemeContext);
     const { id } = useParams();
     const url = "http://localhost:3000/tarifler/" + id;
 
@@ -11,7 +13,7 @@ function Details() {
 
     return (
         <div className='row mt-3'>
-            {isLoading && <div className='alert alert-warning'>Yükleniyor...</div>}
+            {isLoading && <div className={`alert alert-${btnColor}`}>Yükleniyor...</div>}
             {
                 tarif && (
                     <>
@@ -31,7 +33,7 @@ function Details() {
                         </div>
                         <div className='col-12 mt-3'>
                             <p>{tarif.hazirlanisi}</p>
-                            <a href={tarif.url} className='btn btn-outline-primary'>Tarifi İncele</a>
+                            <a href={tarif.url} className={`btn btn-outline-${btnColor}`}>Tarifi İncele</a>
                         </div>
                     </>
                 )

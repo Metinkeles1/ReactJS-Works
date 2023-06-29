@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import { ThemeContext } from '../contexts/ThemeContext'
 import SearchBar from './SearchBar'
 
 function Navbar() {
+    const { color } = useContext(ThemeContext)
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+        <nav className={`navbar navbar-expand-lg navbar-dark bg-${color}`}>
             <div className="container">
                 <Link className='navbar-brand' to="/">Yemek Tarifleri</Link>
                 <ul className='navbar-nav me-auto'>
