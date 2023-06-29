@@ -5,15 +5,15 @@ import useFetch from '../../hooks/useFetch';
 import './Details.css';
 
 function Details() {
-    const { btnColor } = useContext(ThemeContext);
+    const { color } = useContext(ThemeContext);
     const { id } = useParams();
     const url = "http://localhost:3000/tarifler/" + id;
 
-    const { data: tarif, isLoading, error } = useFetch(url);
+    const { data: tarif, isLoading } = useFetch(url);
 
     return (
         <div className='row mt-3'>
-            {isLoading && <div className={`alert alert-${btnColor}`}>Yükleniyor...</div>}
+            {isLoading && <div className={`alert alert-${color}`}>Yükleniyor...</div>}
             {
                 tarif && (
                     <>
@@ -33,7 +33,7 @@ function Details() {
                         </div>
                         <div className='col-12 mt-3'>
                             <p>{tarif.hazirlanisi}</p>
-                            <a href={tarif.url} className={`btn btn-outline-${btnColor}`}>Tarifi İncele</a>
+                            <a href={tarif.url} className={`btn btn-outline-${color}`}>Tarifi İncele</a>
                         </div>
                     </>
                 )

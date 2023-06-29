@@ -14,7 +14,7 @@ function Create() {
     const [url, setUrl] = useState('');
     const malzemeInput = useRef(null);
     const navigate = useNavigate();
-    const { btnColor } = useContext(ThemeContext);
+    const { color } = useContext(ThemeContext);
 
     const { postData, data } = useFetch("http://localhost:3000/tarifler", "POST")
 
@@ -56,7 +56,7 @@ function Create() {
                         <label htmlFor="malzemeler">Malzemeler: <ul>{malzemeler.map(item => <li key={item}>{item}</li>)}</ul></label>
                         <div className="input-group">
                             <input ref={malzemeInput} type="text" name='malzeme' className='form-control' onChange={(e) => setMalzeme(e.target.value)} />
-                            <button className={`btn btn-${btnColor}`} type='button' onClick={handleAddMalzeme}>+</button>
+                            <button className={`btn btn-${color}`} type='button' onClick={handleAddMalzeme}>+</button>
                         </div>
                     </div>
                     <div className='mb-3'>
@@ -71,7 +71,7 @@ function Create() {
                         <label htmlFor='url' className='form-label'>Url</label>
                         <input type="text" name='url' id='url' className='form-control' onChange={(e) => setUrl(e.target.value)} />
                     </div>
-                    <button type='submit' className={`btn btn-${btnColor}`}>Kaydet</button>
+                    <button type='submit' className={`btn btn-${color}`}>Kaydet</button>
                 </form>
             </div>
         </div>
