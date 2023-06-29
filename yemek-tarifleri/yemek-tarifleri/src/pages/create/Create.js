@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react'
+import useFetch from '../../hooks/useFetch';
 import './Create.css';
 
 function Create() {
@@ -10,6 +11,8 @@ function Create() {
     const [resim, setResim] = useState('');
     const [url, setUrl] = useState('');
     const malzemeInput = useRef(null);
+
+    const { postData } = useFetch("http://localhost:3000/tarifler", "POST")
 
     const handleAddMalzeme = (e) => {
         const item = malzeme.trim();
@@ -25,7 +28,7 @@ function Create() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(baslik, aciklama, hazirlanisi, resim, url);
+        postData({ baslik, aciklama, malzemeler, hazirlanisi, resim, url });
     }
 
     return (
@@ -49,7 +52,7 @@ function Create() {
                         </div>
                     </div>
                     <div className='mb-3'>
-                        <label htmlFor='hazirlanisi' className='form-label'>Hazırnalışı</label>
+                        <label htmlFor='hazirlanisi' className='form-label'>Hazırlanışı</label>
                         <textarea type="text" name='hazirlanisi' id='hazirlanisi' className='form-control' onChange={(e) => setHazirlanisi(e.target.value)} />
                     </div>
                     <div className='mb-3'>
